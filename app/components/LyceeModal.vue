@@ -20,12 +20,20 @@ const emit = defineEmits<{
 const lycees = ref<Lycee[]>([])
 const searchQuery = ref('')
 
+// Données de fallback si l'API ne fonctionne pas
+const fallbackLycees: Lycee[] = [
+  { nom: 'Etienne Dolet', ville: 'Paris', type: 'Lycée Public' },
+  { nom: 'Lycée privé Charles de Foucauld', ville: 'Paris', type: 'Lycée Privé' },
+  { nom: 'Lycée polyvalent Guillaume Tirel', ville: 'Paris', type: 'Lycée Public' }
+]
+
 onMounted(async () => {
   try {
     const data = await $fetch<Lycee[]>('/api/lycee-data?list=true')
     lycees.value = data
   } catch (error) {
-    console.error('Erreur lors du chargement des lycées:', error)
+    console.error('Erreur lors du chargement des lycées, utilisation des données de fallback:', error)
+    lycees.value = fallbackLycees
   }
 })
 

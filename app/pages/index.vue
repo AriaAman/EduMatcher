@@ -20,14 +20,26 @@ interface LyceeData {
 const lyceeData = ref<LyceeData | null>(null)
 const isModalOpen = ref(false)
 const hasSelection = ref(false)
+const isLoading = ref(true)
 
 const loadData = async () => {
   try {
+    // Attendre 2 secondes avant de charger les données
+    await new Promise(resolve => setTimeout(resolve, 1000))
+    
     const data = await $fetch<LyceeData>('/api/lycee-data')
     lyceeData.value = data
     hasSelection.value = true
   } catch (error) {
     console.error('Erreur lors du chargement des données:', error)
+    // Données de fallback en cas d'erreur
+    lyceeData.value = {
+      lycee: { nom: 'Etienne Dolet', ville: 'Paris', type: 'Lycée Public' },
+      classe: { niveau: 'Terminale', typeBac: 'Général' }
+    }
+    hasSelection.value = true
+  } finally {
+    isLoading.value = false
   }
 }
 
@@ -96,8 +108,11 @@ const navigateToResults = () => {
           </div>
         </div>
 
-        <div v-else class="text-center py-16 px-5 text-lg text-gray-600">
-          Chargement...
+        <div v-else class="text-center py-16 px-5">
+          <div class="animate-pulse">
+            <div class="text-lg text-gray-600 mb-4">Chargement de vos données...</div>
+            <div class="w-8 h-8 border-4 border-[#FF7342] border-t-transparent rounded-full animate-spin mx-auto"></div>
+          </div>
         </div>
       </div>
     </main>

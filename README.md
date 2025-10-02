@@ -1,40 +1,47 @@
 # EduMatcher
 
-Application web moderne pour aider les étudiants à trouver le lycée idéal selon leurs critères et aspirations.
+Application web pour aider les étudiants à trouver le lycée idéal selon leurs critères.
 
 ## Fonctionnalités
 
 - 🏫 Sélection de lycées avec informations détaillées
 - 📚 Configuration des classes (Seconde, Première, Terminale)
 - 🎯 Types de bac (Général, Technologique, Professionnel)
-- 📊 Système de notation et recommandations
+- 📊 Système de recommandations avec score de compatibilité
 - 🎨 Interface moderne avec animations fluides
 
 ## Technologies
 
 - **Nuxt 3** - Framework Vue.js full-stack
 - **TypeScript** - Typage statique
-- **Tailwind CSS** - Styling utilitaire
+- **Tailwind CSS** - Framework CSS utilitaire
+- **Vue 3** - Framework JavaScript réactif
 
 ## Installation
 
 ```bash
+# Cloner le repository
+git clone https://github.com/AriaAman/EduMatcher.git
+cd EduMatcher
+
 # Installer les dépendances
 npm install
 
-# Démarrer en mode développement
+# Démarrer le serveur de développement
 npm run dev
 ```
 
-## Structure
+## Utilisation
 
-```
-app/
-├── components/     # Composants Vue réutilisables
-├── pages/         # Pages de l'application
-└── server/api/    # API endpoints
-```
+1. Sélectionnez votre lycée dans la liste
+2. Configurez votre classe et type de bac
+3. Cliquez sur "Confirmer" pour voir vos recommandations
 
-## Développement
+## API
 
-L'application utilise Nuxt 3 avec TypeScript et Tailwind CSS pour une expérience de développement moderne et efficace.
+- `GET /api/lycee-data` - Données lycée + classe aléatoires
+- `GET /api/lycee-data?list=true` - Liste complète des lycées
+
+## Auteur
+
+**Aria Aman** - [@AriaAman](https://github.com/AriaAman)
