@@ -22,7 +22,7 @@ const searchQuery = ref('')
 
 onMounted(async () => {
   try {
-    const data = await $fetch<Lycee[]>('/api/lycees')
+    const data = await $fetch<Lycee[]>('/api/lycee-data?list=true')
     lycees.value = data
   } catch (error) {
     console.error('Erreur lors du chargement des lycées:', error)
