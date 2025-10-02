@@ -15,7 +15,6 @@ Application web pour aider les étudiants à trouver le lycée idéal selon leur
 - **Nuxt 3** - Framework Vue.js full-stack
 - **TypeScript** - Typage statique
 - **Tailwind CSS** - Framework CSS utilitaire
-- **Vue 3** - Framework JavaScript réactif
 
 ## Installation
 
