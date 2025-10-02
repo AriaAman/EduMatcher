@@ -1,4 +1,4 @@
-export default defineEventHandler(() => {
+export default defineEventHandler((event) => {
   const lycees = [
     { nom: 'Etienne Dolet', ville: 'Paris', type: 'Lycée Public' },
     { nom: 'Lycée privé Charles de Foucauld', ville: 'Paris', type: 'Lycée Privé' },
@@ -24,7 +24,16 @@ export default defineEventHandler(() => {
   const classes = ['Seconde', 'Première', 'Terminale']
   const typeBac = ['Général', 'Technologique', 'Professionnel']
 
-  // Sélection aléatoire
+  // Vérifier le paramètre pour déterminer le type de réponse
+  const query = getQuery(event)
+  const listOnly = query.list === 'true'
+
+  // Si on veut juste la liste des lycées
+  if (listOnly) {
+    return lycees
+  }
+
+  // Sinon, retourner des données aléatoires avec lycée + classe
   const randomLycee = lycees[Math.floor(Math.random() * lycees.length)]
   const randomClasse = classes[Math.floor(Math.random() * classes.length)]
   const randomTypeBac = typeBac[Math.floor(Math.random() * typeBac.length)]
