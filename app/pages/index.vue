@@ -25,7 +25,7 @@ const isLoading = ref(true)
 const loadData = async () => {
   try {
     // Attendre 2 secondes avant de charger les données
-    await new Promise(resolve => setTimeout(resolve, 1000))
+    await new Promise(resolve => setTimeout(resolve, 150))
     
     const data = await $fetch<LyceeData>('/api/lycee-data')
     lyceeData.value = data
