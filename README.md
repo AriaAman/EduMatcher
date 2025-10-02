@@ -1,75 +1,40 @@
-# Nuxt Minimal Starter
+# EduMatcher
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Application web moderne pour aider les étudiants à trouver le lycée idéal selon leurs critères et aspirations.
 
-## Setup
+## Fonctionnalités
 
-Make sure to install dependencies:
+- 🏫 Sélection de lycées avec informations détaillées
+- 📚 Configuration des classes (Seconde, Première, Terminale)
+- 🎯 Types de bac (Général, Technologique, Professionnel)
+- 📊 Système de notation et recommandations
+- 🎨 Interface moderne avec animations fluides
+
+## Technologies
+
+- **Nuxt 3** - Framework Vue.js full-stack
+- **TypeScript** - Typage statique
+- **Tailwind CSS** - Styling utilitaire
+
+## Installation
 
 ```bash
-# npm
+# Installer les dépendances
 npm install
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
+# Démarrer en mode développement
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+## Structure
 
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+```
+app/
+├── components/     # Composants Vue réutilisables
+├── pages/         # Pages de l'application
+└── server/api/    # API endpoints
 ```
 
-Locally preview production build:
+## Développement
 
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+L'application utilise Nuxt 3 avec TypeScript et Tailwind CSS pour une expérience de développement moderne et efficace.
